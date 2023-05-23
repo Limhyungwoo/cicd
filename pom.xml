@@ -2,34 +2,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
 		 http://maven.apache.org/maven-v4_0_0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>my-app</artifactId>
+    <groupId>com.njonecompany.web</groupId>
+    <artifactId>web</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>My App</name>
-
+    <version>1.0</version>
+    <name>cicd-web-project maven webapp</name>
+    <url>http://maven.apache.org</url>
     <properties>
+        <!-- https://maven.apache.org/general.html#encoding-warning -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spring.version>5.3.9</spring.version>
-        <react.version>18.2.0</react.version>
-        <react-dom.version>18.2.0</react-dom.version>
-        <redux.version>4.2.1</redux.version>
-        <axios.version>0.25.0</axios.version>
+        <spring.version>5.3.17</spring.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>webjars</id>
-            <name>WebJars Repository</name>
-            <url>https://repo.webjars.org</url>
-        </repository>
-    </repositories>
-
     <dependencies>
-        <!-- Spring Framework -->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -42,14 +31,14 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <!-- Logging with Logback -->
+        <!-- logging , spring 5 no more bridge, thanks spring-jcl -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
 
-        <!-- JUnit 5 for unit testing -->
+        <!-- junit 5, unit test -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -57,7 +46,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Hamcrest for unit testing -->
+        <!-- unit test -->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-library</artifactId>
@@ -65,99 +54,51 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Servlet API -->
+        <!-- for web servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
         </dependency>
 
-        <!-- JSTL -->
+        <!-- Some containers like Tomcat don't have jstl library -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
 
-        <!-- JSP API -->
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>javax.servlet.jsp-api</artifactId>
             <version>2.3.1</version>
         </dependency>
 
-        <!-- React and ReactDOM -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>react</artifactId>
-            <version>${react.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>react-dom</artifactId>
-            <version>${react-dom.version}</version>
-        </dependency>
-
-        <!-- Babel Standalone -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>babel-standalone</artifactId>
-            <version>7.16.0</version>
-        </dependency>
-
-        <!-- React Router DOM -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>react-router-dom</artifactId>
-            <version>6.0.2</version>
-        </dependency>
-
-        <!-- Redux -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>redux</artifactId>
-            <version>${redux.version}</version>
-        </dependency>
-
-        <!-- Axios -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>axios</artifactId>
-            <version>${axios.version}</version>
-        </dependency>
-
-        <!-- Material-UI Core -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>mui-material</artifactId>
-            <version>5.3.1</version>
-        </dependency>
     </dependencies>
-
     <build>
-        <finalName>React-project-${user.name}</finalName>
+        <finalName>hello-world</finalName>
         <plugins>
-            <!-- Jetty Maven Plugin -->
+            <!-- http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>10.0.6</version>
+                <version>9.4.12.v20180830</version>
             </plugin>
 
-            <!-- Maven Surefire Plugin -->
+            <!-- Default is too old, update to latest to run the latest Spring 5 + jUnit 5 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>2.22.0</version>
             </plugin>
 
-            <!-- Maven WAR Plugin -->
+            <!-- Default 2.2 is too old, update to latest -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.2</version>
+                <version>3.2.2</version>
             </plugin>
+
         </plugins>
     </build>
 
