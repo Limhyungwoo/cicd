@@ -16,12 +16,17 @@
         <spring.version>5.3.9</spring.version>
         <react.version>18.2.0</react.version>
         <react-dom.version>18.2.0</react-dom.version>
-        <babel.version>7.16.0</babel.version>
-        <react-router-dom.version>6.0.2</react-router-dom.version>
         <redux.version>4.2.1</redux.version>
         <axios.version>0.25.0</axios.version>
-        <mui.material.version>5.3.1</mui.material.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>webjars</id>
+            <name>WebJars Repository</name>
+            <url>https://repo.webjars.org</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <!-- Spring Framework -->
@@ -94,18 +99,18 @@
             <version>${react-dom.version}</version>
         </dependency>
 
-        <!-- Babel -->
+        <!-- Babel Standalone -->
         <dependency>
             <groupId>org.webjars.npm</groupId>
             <artifactId>babel-standalone</artifactId>
-            <version>${babel.version}</version>
+            <version>7.16.0</version>
         </dependency>
 
         <!-- React Router DOM -->
         <dependency>
             <groupId>org.webjars.npm</groupId>
             <artifactId>react-router-dom</artifactId>
-            <version>${react-router-dom.version}</version>
+            <version>6.0.2</version>
         </dependency>
 
         <!-- Redux -->
@@ -125,8 +130,8 @@
         <!-- Material-UI Core -->
         <dependency>
             <groupId>org.webjars.npm</groupId>
-            <artifactId>@mui/material</artifactId>
-            <version>${mui.material.version}</version>
+            <artifactId>mui-material</artifactId>
+            <version>5.3.1</version>
         </dependency>
     </dependencies>
 
