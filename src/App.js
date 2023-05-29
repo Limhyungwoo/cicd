@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> "Your momey is mine"
+          Edit <code>src/App.js</code> "Today is 2023-05-30 8:48 AM"
         </p>
         <a
           className="App-link"
